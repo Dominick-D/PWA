@@ -16,25 +16,27 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './index.html',
         filename: 'index.html'
       }),
       new WebpackPwaManifest({
-        name: 'JATE Text Editor',
+        name: 'JA Text Editor',
         short_name: 'JATE',
         description: 'Just Another Text Editor - A PWA Text Editor',
         background_color: '#ffffff',
         crossorigin: 'use-credentials',
+        start_url: "/",
+				publicPath: "/",
         icons: [
           {
-              src: path.resolve('src/images/logo.png'),
-              sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
-              destination: path.join('assets', 'icons')
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons')
           }
       ]
       }),
       new InjectManifest({
-        swSrc: './src/src-sw.js',
+        swSrc: './src-sw.js',
         swDest: 'sw.js'
       })
     ],
