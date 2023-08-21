@@ -27,6 +27,8 @@ module.exports = () => {
         crossorigin: 'use-credentials',
         start_url: "/",
 				publicPath: "/",
+        inject: true,
+        fingerprints: false,
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
